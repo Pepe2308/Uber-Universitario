@@ -36,7 +36,7 @@ namespace Uber_Universitario
             else
             {
                 waitActivityIndicator.IsRunning = true;
-                await DisplayAlert("Muy bien", "Ingresaste sesión", "Aceptar");
+                await DisplayAlert("Bien", "Ingresaste sesión", "Aceptar");
                 waitActivityIndicator.IsRunning = false;
             }
         }
