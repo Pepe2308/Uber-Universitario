@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber_Universitario.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10,30,10,10" Spacing="10">
+            <Label Text="Uber Universitario"
+                   Font="30"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <Label Text="Ingreso al sistema"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <ActivityIndicator x:Name="waitActivityIndicator"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+            <Label Text="Matricula:"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+            <Entry x:Name="userEntry"
+                   Keyboard="Numeric"
+                   Placeholder="Ingrese matricula"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"/>
+            <Label Text="Contraseña:"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+            <Entry x:Name="passwordEntry"
+                   IsPassword="True"
+                   Placeholder="Ingrese contraseña"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"/>
+            <Button x:Name="enterButton"
+                    Text="Ingresar"
+                    BackgroundColor="Navy"
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
