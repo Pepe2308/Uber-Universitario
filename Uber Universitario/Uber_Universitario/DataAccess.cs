@@ -20,8 +20,12 @@ namespace Uber_Universitario
             connection = new SQLiteConnection(config.Plataforma,
                 Path.Combine(config.DirectorioDB, "UberUniversitario.db3"));
             connection.CreateTable<Users>();
+            connection.CreateTable<Car>();
+            connection.CreateTable<Driver>();
+            connection.CreateTable<UABC>();
+            connection.CreateTable<Passenger>();
         }
-
+        #region Users methods
         public void InsertUser(Users user)
         {
             connection.Insert(user);
@@ -46,10 +50,36 @@ namespace Uber_Universitario
         {
             return connection.Table<Users>().OrderBy(c => c.LastName).ToList() ;
         }
+        #endregion
+
+        #region Car Methods
+        public void InsertCar(Car car)
+        {
+            connection.Insert(car);
+        }
+
+        public void DeleteCar(Car car)
+        {
+            connection.Delete(car);
+        }
+
+        public Car GetCar(int ID)
+        {
+            return connection.Table<Car>().FirstOrDefault(c => c.ID == ID);
+        }
+
+        public List<Car> GetCars()
+        {
+            return connection.Table<Car>().OrderBy(c => c.Model).ToList();
+        }
+#endregion
+
+
 
         public void Dispose()
         {
             connection.Dispose();
         }
+
     }
 }

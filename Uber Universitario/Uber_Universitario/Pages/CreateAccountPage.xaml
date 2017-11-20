@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber_Universitario.Pages.CreateAccountPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10,30,10,10" Spacing="15" BackgroundColor="#c0c0c8">
+                <Label Text="Crear cuenta"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+                <Entry x:Name="nameEntry"
+                   Placeholder="Nombre(s)"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Entry x:Name="lastNameEntry"
+                   Placeholder="Apellido(s)"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Entry x:Name="enrollmentIDEntry"
+                   Placeholder="Matrícula"
+                   Keyboard="Numeric"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Entry x:Name="entryEmail"
+                   Placeholder="Correo electrónico"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Entry x:Name="entryPhoneNumber"
+                   Placeholder="Teléfono"
+                   Keyboard="Numeric"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Entry x:Name="entryCity"
+                   Placeholder="Ciudad"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Entry x:Name="entryPassword"
+                   Placeholder="Contraseña"
+                   IsPassword="True"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Button x:Name="registerButton"
+                    Text="Registrarse"
+                    VerticalOptions="End"
+                    HorizontalOptions="End"
+                    Clicked="registerButton_Clicked"
+                    BackgroundColor="Navy"
+                    TextColor="White"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

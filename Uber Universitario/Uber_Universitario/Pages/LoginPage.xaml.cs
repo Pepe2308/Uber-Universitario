@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Uber_Universitario.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +12,7 @@ namespace Uber_Universitario
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
+        
 		public LoginPage ()
 		{
 			InitializeComponent ();
@@ -36,9 +37,21 @@ namespace Uber_Universitario
             else
             {
                 waitActivityIndicator.IsRunning = true;
+                
                 await DisplayAlert("Bien", "Ingresaste sesión", "Aceptar");
                 waitActivityIndicator.IsRunning = false;
             }
+        }
+
+        private void createAccountButton_Clicked(object sender, EventArgs e)
+        {
+             App.Current.MainPage = new NavigationPage(new CreateAccountPage());
+        }
+
+
+        private async void forgetPasswordButton_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new NavigationPage(new ForgetPasswordPage());
         }
     }
 }

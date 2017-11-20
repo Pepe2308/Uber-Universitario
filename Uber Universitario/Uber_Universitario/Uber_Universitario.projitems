@@ -19,6 +19,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Passenger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UABC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Users.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\CreateAccountPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ForgetPasswordPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -42,6 +48,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\CreateAccountPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\ForgetPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
