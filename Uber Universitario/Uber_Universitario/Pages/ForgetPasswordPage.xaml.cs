@@ -29,5 +29,9 @@ namespace Uber_Universitario.Pages
                 await DisplayAlert("Error", "Debe ingresar una matricula", "Aceptar");
             }
         }
+        public async void OnPreviousPageButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }
