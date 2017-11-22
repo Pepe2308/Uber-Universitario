@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Uber_Universitario.LoginPage"
-             BackgroundColor="#c0c0c8">
+             BackgroundColor="#c0c0c8"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Padding="10,30,10,10" Spacing="15">
             <Label Text="UBER UNIVERSITARIO"

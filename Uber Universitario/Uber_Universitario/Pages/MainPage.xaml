@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="Uber_Universitario.Pages.MainPage">
+    <ContentPage.Content>
+        
+        <StackLayout Padding="10,30,10,10" Spacing="8">
+            <Image Source="steveJobs.png" 
+                   HeightRequest="50" 
+                   WidthRequest="50"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"/>
+            <Label Text="{Binding Name}"
+                   HorizontalOptions="End"
+                   VerticalOptions="Start"
+                   FontAttributes="Bold"
+                   FontSize="16"/>
+            <Switch x:Name="accountTypeSwitch"
+                    IsToggled="False"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"/>
+
+            <maps:Map
+                WidthRequest="320"
+                HeightRequest="400"
+                x:Name="MyMap"
+                IsShowingUser="True"
+                MapType="Hybrid">
+
+            </maps:Map>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

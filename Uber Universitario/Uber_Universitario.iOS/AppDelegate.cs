@@ -23,6 +23,7 @@ namespace Uber_Universitario.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init ();
+            Xamarin.FormsMaps.Init();
 			LoadApplication (new Uber_Universitario.App ());
 
 			return base.FinishedLaunching (app, options);

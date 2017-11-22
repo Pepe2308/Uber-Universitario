@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Uber_Universitario.Models;
 using Uber_Universitario.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,8 +18,9 @@ namespace Uber_Universitario
 		{
 			InitializeComponent ();
             enterButton.Clicked += enterButton_Clicked;
+           
 
-		}
+        }
 
         private async void enterButton_Clicked(object sender, EventArgs e)
         {
@@ -37,21 +39,40 @@ namespace Uber_Universitario
             else
             {
                 waitActivityIndicator.IsRunning = true;
-                
-                await DisplayAlert("Bien", "Ingresaste sesión", "Aceptar");
+                var user = new Users();
+
+                using (var datos = new DataAccess())
+                {
+                    user = datos.GetUser(userEntry.Text, passwordEntry.Text);
+                }
+                if(user ==  null)
+                {
+                    await DisplayAlert("ERROR", "USUARIO INCORRECTO", "Aceptar");
+                }
+                else
+                {
+                    Application.Current.MainPage = new MainPage(user);
+
+                }
+
                 waitActivityIndicator.IsRunning = false;
             }
         }
 
-        private void createAccountButton_Clicked(object sender, EventArgs e)
+        private async void createAccountButton_Clicked(object sender, EventArgs e)
         {
-             App.Current.MainPage = new NavigationPage(new CreateAccountPage());
+             await Navigation.PushAsync(new CreateAccountPage());
         }
 
 
         private async void forgetPasswordButton_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new ForgetPasswordPage());
+            await Navigation.PushAsync(new ForgetPasswordPage());
+        }
+
+        private void createDataForDataBase()
+        {
+
         }
     }
 }

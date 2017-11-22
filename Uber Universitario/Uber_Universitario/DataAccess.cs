@@ -21,7 +21,7 @@ namespace Uber_Universitario
                 Path.Combine(config.DirectorioDB, "UberUniversitario.db3"));
             connection.CreateTable<Users>();
             connection.CreateTable<Car>();
-            connection.CreateTable<Driver>();
+           // connection.CreateTable<Driver>();
             connection.CreateTable<UABC>();
             connection.CreateTable<Passenger>();
         }
@@ -41,9 +41,15 @@ namespace Uber_Universitario
             connection.Delete(user);
         }
 
-        public Users GetUser(int ID)
+        public Users GetUserByID(int ID)
         {
             return connection.Table<Users>().FirstOrDefault(c => c.ID == ID);
+        }
+
+        public Users GetUser(string enrollmentID,string password)
+        {
+            return connection.Table<Users>()
+                .FirstOrDefault(c => c.EnrollmentID == enrollmentID && c.Password == password);
         }
         
         public List<Users> GetUsers()
@@ -72,8 +78,20 @@ namespace Uber_Universitario
         {
             return connection.Table<Car>().OrderBy(c => c.Model).ToList();
         }
-#endregion
+        #endregion
 
+        #region UABC Methods
+        public void InsertEnrollmentID(UABC uabc)
+        {
+            connection.Insert(uabc);
+        }
+
+        public UABC GetUABCEnrollmentID(string enrollmentID)
+        {
+            return connection.Table<UABC>().FirstOrDefault(c => c.EnrollmentID == enrollmentID);   
+        }
+
+#endregion
 
 
         public void Dispose()
