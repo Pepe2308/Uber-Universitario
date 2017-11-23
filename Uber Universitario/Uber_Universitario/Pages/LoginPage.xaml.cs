@@ -18,7 +18,7 @@ namespace Uber_Universitario
 		{
 			InitializeComponent ();
             enterButton.Clicked += enterButton_Clicked;
-           
+           // createDataForDataBase();
 
         }
 
@@ -47,12 +47,14 @@ namespace Uber_Universitario
                 }
                 if(user ==  null)
                 {
-                    await DisplayAlert("ERROR", "USUARIO INCORRECTO", "Aceptar");
+                    await DisplayAlert("ERROR", "USUARIO O CONTRASEÑA INCORRECTOS", "Aceptar");
+                    userEntry.Text = null;
+                    passwordEntry.Text = null;
+                    return;
                 }
                 else
                 {
-                    Application.Current.MainPage = new MainPage(user);
-
+                    await Navigation.PushAsync(new MainPage(user));
                 }
 
                 waitActivityIndicator.IsRunning = false;
@@ -72,6 +74,20 @@ namespace Uber_Universitario
 
         private void createDataForDataBase()
         {
+
+            int enrollmentId = 1210;
+            for(int i = 0; i < 10; i++)
+            {
+                var uabcUser = new UABC
+                {
+                    EnrollmentID = enrollmentId++.ToString()
+                };
+                using (var data = new DataAccess())
+                {
+                    data.InsertEnrollmentID(uabcUser);
+                }
+
+            }
 
         }
     }

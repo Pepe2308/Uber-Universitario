@@ -2,33 +2,60 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             x:Class="Uber_Universitario.Pages.MainPage">
+             x:Class="Uber_Universitario.Pages.MainPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        
-        <StackLayout Padding="10,30,10,10" Spacing="8">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            
             <Image Source="steveJobs.png" 
-                   HeightRequest="50" 
-                   WidthRequest="50"
+                   HeightRequest="70" 
+                   WidthRequest="70"
                    HorizontalOptions="Start"
-                   VerticalOptions="Start"/>
+                   VerticalOptions="Start"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
             <Label Text="{Binding Name}"
-                   HorizontalOptions="End"
+                   HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"
                    FontAttributes="Bold"
-                   FontSize="16"/>
-            <Switch x:Name="accountTypeSwitch"
-                    IsToggled="False"
-                    HorizontalOptions="Start"
+                   FontSize="16"
+                   Grid.Row="0"
+                   Grid.Column="1"/>
+            <StackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
+                <Label Text="Asientos reservados: " FontSize="Micro"/>
+                <Label Text="Asientos disponibles: " FontSize="Micro"/>
+                <Switch x:Name="accountTypeSwitch"
+                    IsToggled="False" 
+                    HorizontalOptions="Center"
                     VerticalOptions="Center"/>
-
+            </StackLayout>
+            <Button x:Name="registerDriverButton"
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    WidthRequest="10" 
+                    HeightRequest="10"
+                    Text="Registrar como conductor"
+                    Clicked="RegisterDriverButton_Clicked"/>
+            <!--<Button x:Name="carButton" Grid.Row="1" Grid.Column="1" WidthRequest="40" HeightRequest="10" />-->
             <maps:Map
                 WidthRequest="320"
                 HeightRequest="400"
                 x:Name="MyMap"
                 IsShowingUser="True"
-                MapType="Hybrid">
-
+                MapType="Street"
+                Grid.Row="2"
+                Grid.ColumnSpan="2">
             </maps:Map>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

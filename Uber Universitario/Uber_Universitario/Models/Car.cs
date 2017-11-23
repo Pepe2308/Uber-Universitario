@@ -15,8 +15,10 @@ namespace Uber_Universitario.Models
         public string Model { get; set; }
         public string Color { get; set; }
         public int ModelYear { get; set; }
+        [Unique]
         public string LicensePlate { get; set; }
         public int Seats { get; set; }
+        public float TravelFee { get; set; }
 
     }
 }

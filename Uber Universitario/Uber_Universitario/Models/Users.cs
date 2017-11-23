@@ -11,13 +11,16 @@ namespace Uber_Universitario.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
+        [Unique]
         public string EnrollmentID { get; set; }
         public string Email { get; set; }
+        [Unique]
         public string PhoneNumber { get; set; }
         public string City { get; set; }
         public string AccountType { get; set; }
         public string Localitation { get; set; }
         public string Password { get; set; }
+        public bool driverRegister { get; set; }
 
         public override string ToString()
         {

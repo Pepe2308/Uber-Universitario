@@ -69,22 +69,37 @@ namespace Uber_Universitario.Pages
             }
             else
             {
-                var user = new Users
-                {
-                    Name = nameEntry.Text,
-                    LastName = lastNameEntry.Text,
-                    AccountType = "pasajero".ToUpper(),
-                    City = cityEntry.Text,
-                    Email = emailEntry.Text,
-                    EnrollmentID = enrollmentIDEntry.Text,
-                    Password = passwordEntry.Text,
-                    PhoneNumber = phoneNumberEntry.Text
-                };
+                var uabcEnrollmentID = new UABC();
 
-                using (var datos = new DataAccess())
+                using (var data = new DataAccess())
                 {
-                    datos.InsertUser(user);
+                    uabcEnrollmentID = data.GetUABCEnrollmentID(enrollmentIDEntry.Text);
                 }
+                if (uabcEnrollmentID == null)
+                {
+                    await DisplayAlert("Error", "Matricula no existente en UABC", "Aceptar");
+                    enrollmentIDEntry.Focus();
+                    return;
+                }
+                else
+                {
+                    var user = new Users
+                    {
+                        Name = nameEntry.Text,
+                        LastName = lastNameEntry.Text,
+                        AccountType = "pasajero".ToUpper(),
+                        City = cityEntry.Text,
+                        Email = emailEntry.Text,
+                        EnrollmentID = enrollmentIDEntry.Text,
+                        Password = passwordEntry.Text,
+                        PhoneNumber = phoneNumberEntry.Text,
+                        driverRegister = false
+                    };
+
+                    using (var datos = new DataAccess())
+                    {
+                        datos.InsertUser(user);
+                    }
 
                     nameEntry.Text = string.Empty;
                     lastNameEntry.Text = string.Empty;
@@ -94,11 +109,12 @@ namespace Uber_Universitario.Pages
                     passwordEntry.Text = string.Empty;
                     phoneNumberEntry.Text = string.Empty;
 
-                await DisplayAlert("Éxito!", "Bienvenido a la aplicación", "Aceptar");
-                Application.Current.MainPage = new MainPage(user);
+                    await DisplayAlert("Éxito!", "Bienvenido a la aplicación", "Aceptar");
+                    Application.Current.MainPage = new NavigationPage(new MainPage(user));
+                }
+                   
             }
             
-
         }
     }
 }

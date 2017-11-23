@@ -18,5 +18,10 @@ namespace Uber_Universitario.Pages
             BindingContext = user;
 
 		}
-	}
+
+        private async void RegisterDriverButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CarRegistrationPage()); 
+        }
+    }
 }

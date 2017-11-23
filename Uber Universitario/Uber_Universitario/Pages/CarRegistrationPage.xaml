@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber_Universitario.Pages.CarRegistrationPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker x:Name="carTypePicker"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"/>
+            <Picker x:Name="carMakePicker"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Entry x:Name="carModel"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Entry x:Name="carColor"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Picker x:Name="yearCarPicker"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Entry x:Name="licensePlateEntry"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Picker x:Name="seatsPicker"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Entry x:Name="usualRouteEntry"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Entry x:Name="travelFeeEntry"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
