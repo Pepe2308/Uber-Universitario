@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Uber_Universitario.Models;
 using Uber_Universitario.Pages;
 using Xamarin.Forms;
 
@@ -12,8 +13,13 @@ namespace Uber_Universitario
 		public App ()
 		{
 			InitializeComponent();
+            var user = new Users()
+            {
+                Name = "JOSE MANUEL"
+            };
 
-			MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new MainPage(user));
+            MainPage = new NavigationPage(new LoginPage());
 		}
 
 		protected override void OnStart ()

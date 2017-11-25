@@ -3,35 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Uber_Universitario.Pages.CarRegistrationPage"
              NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Picker x:Name="carTypePicker"
-                    HorizontalOptions="CenterAndExpand"
+        <ScrollView>
+            <StackLayout Padding="10,30,10,10">
+                <Label Text="Registro del automóvil"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start"/>
+
+                <StackLayout Padding="60,30,10,10" Spacing="3">
+                    <Picker x:Name="carTypePicker"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    Title="Tipo de automóvil"/>
+                    <Picker x:Name="carMakePicker"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Title="Marca del automóvil"/>
+                    <Entry x:Name="carModel"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Placeholder="Modelo"
+                    HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="carColor"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Placeholder="Color"
+                    HorizontalTextAlignment="Center"/>
+                    <Picker x:Name="yearCarPicker"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Title="Año del automóvil"/>
+                    <Entry x:Name="licensePlateEntry"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Placeholder="Número de placa"
+                    HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="seatsEntry"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Placeholder="Capacidad máxima"
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Numeric"/>
+                    <Entry x:Name="usualRouteEntry"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Placeholder="Ruta habitual"/>
+                    <Entry x:Name="travelFeeEntry"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Placeholder="Tarifa por viaje"
+                    Keyboard="Numeric"/>
+                    <Button x:Name="registerCarButton"
+                    Text="Registrar automóvil"
+                    Clicked="registerCarButton_Clicked"
+                    HorizontalOptions="End"
                     VerticalOptions="Center"/>
-            <Picker x:Name="carMakePicker"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Entry x:Name="carModel"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Entry x:Name="carColor"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Picker x:Name="yearCarPicker"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Entry x:Name="licensePlateEntry"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Picker x:Name="seatsPicker"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Entry x:Name="usualRouteEntry"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Entry x:Name="travelFeeEntry"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-        </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

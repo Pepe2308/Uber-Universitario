@@ -24,6 +24,9 @@ namespace Uber_Universitario
 
         private async void enterButton_Clicked(object sender, EventArgs e)
         {
+            enterButton.IsEnabled = false;
+            forgetPasswordButton.IsEnabled = false;
+            createAccountButton.IsEnabled = false;
             if(string.IsNullOrEmpty(userEntry.Text))
             {
                 await DisplayAlert("Error", "Debe ingresar una matricula", "Aceptar");
@@ -54,6 +57,9 @@ namespace Uber_Universitario
                 }
                 else
                 {
+                    waitActivityIndicator.IsRunning = true;
+                    await Task.Delay(3000);
+                    waitActivityIndicator.IsRunning = false;
                     await Navigation.PushAsync(new MainPage(user));
                 }
 

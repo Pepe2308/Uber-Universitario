@@ -23,7 +23,8 @@
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    Grid.Row="0"
-                   Grid.Column="0"/>
+                   Grid.Column="0"
+                   />
             <Label Text="{Binding Name}"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"
@@ -32,13 +33,23 @@
                    Grid.Row="0"
                    Grid.Column="1"/>
             <StackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
-                <Label Text="Asientos reservados: " FontSize="Micro"/>
-                <Label Text="Asientos disponibles: " FontSize="Micro"/>
+                <Label x:Name="reservedSeatsLabel" Text="Asientos reservados: " FontSize="Micro"/>
+                <Label x:Name="availableSeatsLabel" Text="Asientos disponibles: " FontSize="Micro"/>
                 <Switch x:Name="accountTypeSwitch"
                     IsToggled="False" 
                     HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    Toggled="accountTypeSwitch_Toggled"/>
             </StackLayout>
+            <Button x:Name="carsInfoButton"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    WidthRequest="2"
+                    HeightRequest="2"
+                    Image="carIcon.png"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="FillAndExpand"
+                    />
             <Button x:Name="registerDriverButton"
                     Grid.Row="1" 
                     Grid.Column="1" 

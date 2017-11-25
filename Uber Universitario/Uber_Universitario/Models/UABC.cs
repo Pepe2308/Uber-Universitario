@@ -9,7 +9,6 @@ namespace Uber_Universitario.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        [Unique]
         public string EnrollmentID { get; set; }
     }
 }

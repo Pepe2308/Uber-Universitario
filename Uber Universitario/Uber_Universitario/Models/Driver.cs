@@ -11,6 +11,6 @@ namespace Uber_Universitario.Models
         public float Calification { get; set; }
         
         public int CarID { get; set; }
-        public List<Car> Cars { get; set; }
+       // public List<Car> Cars { get; set; }
     }
 }
