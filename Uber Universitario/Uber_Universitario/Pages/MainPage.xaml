@@ -15,16 +15,18 @@
                 <ColumnDefinition Width="120" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
-            
-            <Image Source="steveJobs.png" 
-                   HeightRequest="70" 
-                   WidthRequest="70"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Start"
-                   Grid.Row="0"
-                   Grid.Column="0"
-                   />
+
+
+            <Button x:Name="imageAccountButton"
+                    Image="steveJobs.png"
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    BackgroundColor="Transparent"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Clicked="imageAccountButton_Clicked"/>
             <Label Text="{Binding Name}"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"

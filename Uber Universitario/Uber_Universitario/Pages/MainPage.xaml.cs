@@ -66,5 +66,10 @@ namespace Uber_Universitario.Pages
                 }
             }
         }
+
+        private async void imageAccountButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserInformationPage(user));
+        }
     }
 }

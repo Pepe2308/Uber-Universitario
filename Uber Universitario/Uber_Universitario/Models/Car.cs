@@ -18,6 +18,7 @@ namespace Uber_Universitario.Models
         public string LicensePlate { get; set; }
         public int Seats { get; set; }
         public float TravelFee { get; set; }
+        public int DriverID { get; set; }
 
     }
 }

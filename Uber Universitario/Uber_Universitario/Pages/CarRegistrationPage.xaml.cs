@@ -135,7 +135,8 @@ namespace Uber_Universitario.Pages
                 LicensePlate = licensePlateEntry.Text,
                 Color = carColor.Text,
                 TravelFee = float.Parse(travelFeeEntry.Text),
-                Seats = Int32.Parse(seatsEntry.Text)
+                Seats = Int32.Parse(seatsEntry.Text),
+                DriverID = user.ID
             };
 
 

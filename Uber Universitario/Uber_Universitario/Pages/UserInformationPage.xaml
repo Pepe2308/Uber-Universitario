@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber_Universitario.Pages.UserInformationPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Padding="10,30,10,10" Spacing="13">
+            <Label Text="Editar información de la cuenta"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Image Source="steveJobs.png"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Label Text="{Binding Name}"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="Matricula: "/>
+            <Label Text="{Binding EnrollmentID}"/>
+            <Label Text="Celular: "/>
+            <Label Text="{Binding PhoneNumber}"/>
+            <Label Text="Email: "/>
+            <Label Text="{Binding Email}"/>
+            <Label Text="Contraseña: "/>
+            <Label x:Name="passwordLabel" Text="{Binding Password}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
