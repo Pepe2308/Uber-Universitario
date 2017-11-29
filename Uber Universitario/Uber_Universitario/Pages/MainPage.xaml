@@ -27,13 +27,14 @@
                     Grid.Column="0"
                     Grid.Row="0"
                     Clicked="imageAccountButton_Clicked"/>
-            <Label Text="{Binding Name}"
+            <Label x:Name="userNameLabel"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"
                    FontAttributes="Bold"
                    FontSize="16"
                    Grid.Row="0"
-                   Grid.Column="1"/>
+                   Grid.Column="1"
+                   HorizontalTextAlignment="Center"/>
             <StackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
                 <Label x:Name="reservedSeatsLabel" Text="Asientos reservados: " FontSize="Micro"/>
                 <Label x:Name="availableSeatsLabel" Text="Asientos disponibles: " FontSize="Micro"/>

@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Plugin.Geolocator;
+using Plugin.Geolocator.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Uber_Universitario.Models;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Uber_Universitario.Pages
@@ -20,9 +24,15 @@ namespace Uber_Universitario.Pages
 			InitializeComponent ();
             BindingContext = user;
             this.user = user;
+            string fullName = user.Name.ToString() + " " + user.LastName.ToString();
+            userNameLabel.Text = fullName;
+            Locator();
 
-            if(user.driverRegister == true)        
+
+            if (user.driverRegister == true)
                 registerDriverButton.IsVisible = false;
+            else
+                accountTypeSwitch.IsEnabled = false;
 
             if (user.AccountType.Equals("conductor".ToUpper()))
             {
@@ -71,5 +81,18 @@ namespace Uber_Universitario.Pages
         {
             await Navigation.PushAsync(new UserInformationPage(user));
         }
+
+        private async void Locator()
+        {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 50;
+
+            var location = await locator.GetPositionAsync(timeout: TimeSpan.FromMilliseconds(10000));
+            var position = new Xamarin.Forms.Maps.Position(location.Latitude, location.Longitude);
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(.3)));
+        }
+
+
+
     }
 }

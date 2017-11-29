@@ -10,7 +10,8 @@
                    Font="30"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
             <ActivityIndicator x:Name="waitActivityIndicator"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>

@@ -18,7 +18,7 @@ namespace Uber_Universitario
 		{
 			InitializeComponent ();
             enterButton.Clicked += enterButton_Clicked;
-            // createDataForDataBase();
+            //createDataForDataBase(); //activar cuando se instala por primera vez la aplicación
 
         }
 
@@ -81,8 +81,8 @@ namespace Uber_Universitario
         private void createDataForDataBase()
         {
 
-            int enrollmentId = 1210;
-            for(int i = 0; i < 10; i++)
+            double enrollmentId = 1217000;
+            for(int i = 0; i < 1000; i++)
             {
                 var uabcUser = new UABC
                 {

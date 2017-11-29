@@ -4,7 +4,8 @@
              x:Class="Uber_Universitario.Pages.UserInformationPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,30,10,10" Spacing="13">
+        <Grid >
+            <StackLayout Padding="10,30,10,10" Spacing="15">
             <Label Text="Editar información de la cuenta"
                    FontSize="20"
                    FontAttributes="Bold"
@@ -16,20 +17,28 @@
                     WidthRequest="100"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
-            <Label Text="{Binding Name}"
-                   FontSize="30"
+                <Label x:Name="fullNameLabel"
                    FontAttributes="Bold"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Center"
                    HorizontalTextAlignment="Center"/>
-            <Label Text="Matricula: "/>
-            <Label Text="{Binding EnrollmentID}"/>
-            <Label Text="Celular: "/>
-            <Label Text="{Binding PhoneNumber}"/>
-            <Label Text="Email: "/>
-            <Label Text="{Binding Email}"/>
-            <Label Text="Contraseña: "/>
-            <Label x:Name="passwordLabel" Text="{Binding Password}" />
-        </StackLayout>
+                <Label x:Name="enrollmentIDLabel"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"/>
+                <Label x:Name="celphonLabel"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+                <Label x:Name="emailLabel"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+                <Label x:Name="passwordLabel"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            </Grid>
     </ContentPage.Content>
 </ContentPage>
