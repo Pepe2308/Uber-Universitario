@@ -146,9 +146,8 @@ namespace Uber_Universitario.Pages
             carList.Add(car);
             using (var datos = new DataAccess())
             {
-                datos.DeleteAllCars();
                 datos.InsertCar(car);
-                carId = datos.GetCar().ID;
+                carId = datos.GetLastCarAdded().ID;
             }
 
             var driver = new Driver

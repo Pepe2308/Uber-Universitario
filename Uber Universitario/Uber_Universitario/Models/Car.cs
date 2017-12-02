@@ -19,6 +19,7 @@ namespace Uber_Universitario.Models
         public int Seats { get; set; }
         public float TravelFee { get; set; }
         public int DriverID { get; set; }
+        public int ReservedSeats { get; set; }
 
     }
 }

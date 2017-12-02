@@ -19,5 +19,17 @@ namespace Uber_Universitario.Pages
             BindingContext = user;
             this.user = user;
 		}
-	}
+
+        private async void UpdatePhoneNumberButton_Clicked(object sender, EventArgs e)
+        {
+            user.PhoneNumber = phoneEntry.Text;
+            using (var datos = new DataAccess())
+            {
+                datos.UpdateUser(user);
+            }
+            await DisplayAlert("Exito!", "Haz actualizado el numero celular", "Ok");
+            await Navigation.PopAsync();
+
+        }
+    }
 }

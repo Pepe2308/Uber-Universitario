@@ -73,7 +73,7 @@ namespace Uber_Universitario
             connection.Delete(car);
         }
 
-        public Car GetCar()
+        public Car GetLastCarAdded()
         {
             return connection.Table<Car>().LastOrDefault();
         }
@@ -86,6 +86,11 @@ namespace Uber_Universitario
         public List<Car> GetCars()
         {
             return connection.Table<Car>().OrderBy(c => c.Model).ToList();
+        }
+
+        public List<Car> GetCarsByDriverId(int id)
+        {
+            return connection.Table<Car>().Where(c => c.DriverID == id).ToList();
         }
         #endregion
 

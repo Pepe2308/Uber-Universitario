@@ -17,6 +17,7 @@ namespace Uber_Universitario.Pages
 	public partial class MainPage : ContentPage
 	{
         private Users user;
+        public Car car;
         
 
         public MainPage (Users user)
@@ -27,6 +28,19 @@ namespace Uber_Universitario.Pages
             string fullName = user.Name.ToString() + " " + user.LastName.ToString();
             userNameLabel.Text = fullName;
             Locator();
+
+            using (var datos = new DataAccess())
+            {
+                car = datos.GetCarByID(6);
+            }
+            if(car != null)
+            {
+                car.ReservedSeats = 0;
+                reservedSeatsLabel.Text = "Asientos reservados: " + car.ReservedSeats.ToString();
+                availableSeatsLabel.Text = "Asientos disponibles: " + (car.Seats - car.ReservedSeats).ToString();
+
+            }
+
 
 
             if (user.driverRegister == true)
@@ -90,9 +104,18 @@ namespace Uber_Universitario.Pages
             var location = await locator.GetPositionAsync(timeout: TimeSpan.FromMilliseconds(10000));
             var position = new Xamarin.Forms.Maps.Position(location.Latitude, location.Longitude);
             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(.3)));
+            var pin = new Pin
+            {
+                Position = new Xamarin.Forms.Maps.Position(location.Latitude, location.Longitude),
+                Label = "Position #1",
+                Address = "Address #1"
+            };
+            MyMap.Pins.Add(pin);
         }
 
-
-
+        private async void carsInfoButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterCarPage(user));
+        }
     }
 }

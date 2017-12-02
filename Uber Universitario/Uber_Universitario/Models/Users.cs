@@ -19,6 +19,7 @@ namespace Uber_Universitario.Models
         public string Localitation { get; set; }
         public string Password { get; set; }
         public bool driverRegister { get; set; }
+        public bool tripActivated { get; set; }
 
         public override string ToString()
         {
