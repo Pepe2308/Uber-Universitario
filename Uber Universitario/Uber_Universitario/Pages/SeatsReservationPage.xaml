@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber_Universitario.Pages.SeatsReservationPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Padding="10,30,10,10" Spacing="10">
+            <Label Text="Reservación de asientos"
+                      FontSize="Medium"
+                       HorizontalOptions="Center"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalTextAlignment="Center"/>
+            <Label Text="Asientos requeridos para el viaje"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Picker x:Name="seatsPicker"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Start"/>
+            <Button x:Name="aceptTripButton"
+                    HorizontalOptions="Center"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="Navy"
+                    TextColor="White"
+                    Text="Aceptar viaje"
+                    Clicked="aceptTripButton_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

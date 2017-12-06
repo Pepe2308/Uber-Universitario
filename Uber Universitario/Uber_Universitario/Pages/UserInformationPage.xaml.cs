@@ -49,8 +49,7 @@ namespace Uber_Universitario.Pages
 
         private async void OnPasswordLabelClicked()
         {
-            await DisplayAlert("alerta", "seleccionaste la contraseña", "nimodo");
-            return;
+            await Navigation.PushAsync(new ChangePasswordPage(user));
         }
     }
 }

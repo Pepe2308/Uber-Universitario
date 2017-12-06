@@ -24,6 +24,7 @@ namespace Uber_Universitario
             connection.CreateTable<Driver>();
             connection.CreateTable<UABC>();
             connection.CreateTable<Passenger>();
+            connection.CreateTable<Trip>();
         }
         #region Users methods
         public void InsertUser(Users user)
@@ -73,6 +74,11 @@ namespace Uber_Universitario
             connection.Delete(car);
         }
 
+        public void UpdateCar(Car car)
+        {
+            connection.Update(car);
+        }
+
         public Car GetLastCarAdded()
         {
             return connection.Table<Car>().LastOrDefault();
@@ -112,8 +118,45 @@ namespace Uber_Universitario
         {
             connection.Insert(driver);
         }
+        public Driver GetDriverByName(string name)
+        {
+            return connection.Table<Driver>().Where(d => d.Name+" "+d.LastName == name).FirstOrDefault();
+        }
+
+        public void UpdateDriver(Driver driver)
+        {
+            connection.Update(driver);
+        }
         #endregion
 
+        #region Trip
+        public void InsertTrip(Trip trip)
+        {
+            connection.Insert(trip);
+        }
+        
+        public void UpdateTrip(Trip trip)
+        {
+            connection.Update(trip);
+        }
+
+        public Trip GetTripByDriverID(int driverId)
+        {
+            return connection.Table<Trip>().Where(t=>t.DriverID == driverId).FirstOrDefault();
+        }
+
+        public Trip GetTripByPassengerID(int passengerID)
+        {
+            return connection.Table<Trip>().Where(t => t.PassengerID == passengerID).FirstOrDefault();
+        }
+
+        public Trip GetTripByDriverAndPassengerID(int driverId, int passengerID)
+        {
+                    return connection.Table<Trip>().Where(t => t.DriverID == driverId && t.PassengerID == passengerID).FirstOrDefault();
+        }
+
+
+        #endregion
         public void Dispose()
         {
             connection.Dispose();

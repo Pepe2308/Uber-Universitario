@@ -7,7 +7,7 @@
         <ScrollView>
             <StackLayout Padding="10,30,10,10" Spacing="15" BackgroundColor="#c0c0c8">
                 <Label Text="Crear cuenta"
-                   FontSize="30"
+                   FontSize="20"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"/>

@@ -8,7 +8,7 @@
         <ScrollView>
             <StackLayout Padding="10,30,10,10">
                 <Label Text="Registro del automóvil"
-                   FontSize="30"
+                   FontSize="20"
                    FontAttributes="Bold"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Start"/>

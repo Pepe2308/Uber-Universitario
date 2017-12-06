@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Gms.Maps;
 
 namespace Uber_Universitario.Droid
 {
@@ -23,6 +24,7 @@ namespace Uber_Universitario.Droid
             Xamarin.FormsMaps.Init(this, bundle);
 			LoadApplication (new Uber_Universitario.App ());
 		}
+
 	}
 }
 

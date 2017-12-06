@@ -4,94 +4,95 @@
              x:Class="Uber_Universitario.Pages.RegisterCarPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,30,10,10" Spacing="10">
-            <Label Text="Automóviles registrados"
-                   FontSize="30"
+        <ScrollView>
+            <StackLayout Padding="10,30,10,10" Spacing="10">
+                <Label Text="Automóviles registrados"
+                   FontSize="20"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Center"
                    HorizontalTextAlignment="Center"/>
-            <Label Text="Datos del conductor"
+                <Label Text="Datos del conductor"
                    FontSize="Medium"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"/>
-            <Label x:Name="driverNameLabel"
+                <Label x:Name="driverNameLabel"
                    FontSize="Micro"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-            <Label x:Name="registerCarsLabel"
+                <Label x:Name="registerCarsLabel"
                    FontSize="Micro"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-            <Picker x:Name="registerCarsPicker"
+                <Picker x:Name="registerCarsPicker"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     WidthRequest="150"/>
-            <Label x:Name="carDataLabel"
+                <Label x:Name="carDataLabel"
                    FontSize="Medium"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"/>
-            <Label x:Name="carTypeLabel"
+                <Label x:Name="carTypeLabel"
                    FontSize="Micro"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-            <Label x:Name="carMakeLabel"
+                <Label x:Name="carMakeLabel"
                    FontSize="Micro"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-            <Label x:Name="carColorLabel"
+                <Label x:Name="carColorLabel"
                    FontSize="Micro"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-            <Label x:Name="licensePlateLabel"
+                <Label x:Name="licensePlateLabel"
                    FontSize="Micro"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-            <Label x:Name="yearLabel"
+                <Label x:Name="yearLabel"
                    FontSize="Micro"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button x:Name="addCar"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="addCar"
                         Clicked="addCar_Clicked"
                         Image="addCarIcon.png"
                         BackgroundColor="Transparent"
                         Grid.Column="0"
                         Grid.Row="0"
                         VerticalOptions="End"/>
-                <Button x:Name="removeCar"
+                    <Button x:Name="removeCar"
                         Clicked="removeCar_Clicked"
                         Image="removeCarIcon.png"
                         BackgroundColor="Transparent"
                         Grid.Column="1"
                         Grid.Row="0"
                         VerticalOptions="End"/>
-                <Label Text="Agregar nuevo automóvil"
+                    <Label Text="Agregar nuevo automóvil"
                        FontSize="Micro"
                        HorizontalTextAlignment="Center"
                        Grid.Column="0"
                        Grid.Row="1"/>
-                <Label Text="Eliminar automóvil"
+                    <Label Text="Eliminar automóvil"
                        FontSize="Micro"
                        HorizontalTextAlignment="Center"
                        Grid.Column="1"
                        Grid.Row="1"/>
-            </Grid>
-        </StackLayout>
-
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

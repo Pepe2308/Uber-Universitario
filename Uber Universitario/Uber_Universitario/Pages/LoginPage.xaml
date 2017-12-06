@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <StackLayout Padding="10,30,10,10" Spacing="15">
             <Label Text="UBER UNIVERSITARIO"
-                   Font="30"
+                   Font="25"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"

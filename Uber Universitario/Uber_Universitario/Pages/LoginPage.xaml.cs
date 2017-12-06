@@ -18,7 +18,7 @@ namespace Uber_Universitario
 		{
 			InitializeComponent ();
             enterButton.Clicked += enterButton_Clicked;
-            //createDataForDataBase(); //activar cuando se instala por primera vez la aplicación
+           // createDataForDataBase(); //activar cuando se instala por primera vez la aplicación
 
         }
 

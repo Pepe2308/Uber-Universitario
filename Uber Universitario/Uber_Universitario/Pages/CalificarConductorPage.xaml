@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber_Universitario.Pages.CalificarConductorPage">
+    <ContentPage.Content>
+
+
+        <StackLayout Padding="10,30,10,10" Spacing="10">
+            <Label Text="Califica al conductor" 
+                HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Start"
+                   FontAttributes="Bold"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   FontSize="16"/>
+            <Label x:Name="driverNameLabel"
+                   HorizontalOptions="Start"
+                   FontSize="16"/>
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="Star1"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Image="rating_star_off.png"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="Star2"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Image="rating_star_off.png"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="Star3"
+                        Grid.Row="1"
+                        Grid.Column="3"
+                         WidthRequest="24"
+                         HeightRequest="24"
+                        Image="rating_star_off.png"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="Star4"
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Image="rating_star_off.png"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="Star5"
+                        Grid.Row="1"
+                        Grid.Column="5"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Image="rating_star_off.png"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="FillAndExpand"/>
+        </Grid>
+        <Button x:Name="calificar"
+                        WidthRequest="30"
+                        HeightRequest="50"
+                        Text="Calificar"
+                Clicked="calificar_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
