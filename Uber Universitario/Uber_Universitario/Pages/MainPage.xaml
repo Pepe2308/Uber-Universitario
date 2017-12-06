@@ -62,19 +62,28 @@
             <StackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
                 <Label x:Name="reservedSeatsLabel"  FontSize="Micro"/>
                 <Label x:Name="availableSeatsLabel" FontSize="Micro"/>
+                <Button x:Name="accountTypeButton"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Navy"
+                        TextColor="White"
+                        Clicked="accountTypeButton_Clicked"/>
                 <Switch x:Name="accountTypeSwitch"
-                    IsToggled="False" 
                     HorizontalOptions="StartAndExpand"
                     VerticalOptions="Center"
-                    Toggled="accountTypeSwitch_Toggled"/>
+                    IsToggled="False"
+                    Toggled="accountTypeSwitch_Toggled"
+                        IsVisible="False"/>
             </StackLayout>
             <Button x:Name="carsInfoButton"
                     Grid.Row="1"
                     Grid.Column="1"                  
                     Image="carIcon.png"
                     BackgroundColor="Transparent"
-                    WidthRequest="10" 
-                    HeightRequest="10"
+                    WidthRequest="20" 
+                    HeightRequest="20"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="EndAndExpand"
                     Clicked="carsInfoButton_Clicked"/>
             <Button x:Name="registerDriverButton"
                     Grid.Row="1" 

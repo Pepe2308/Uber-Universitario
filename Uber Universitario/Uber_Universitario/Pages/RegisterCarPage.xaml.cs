@@ -14,11 +14,14 @@ namespace Uber_Universitario.Pages
 	{
         Users user;
         List<Car> carList = new List<Car>();
-        public RegisterCarPage (Users user)
+        Car car;
+        int carNum;
+        public RegisterCarPage (Users user, int carNum)
 		{
 			InitializeComponent ();
             BindingContext = user;
             this.user = user;
+            this.carNum = carNum;
 
             using (var datos = new DataAccess())
             {
@@ -33,11 +36,23 @@ namespace Uber_Universitario.Pages
             {
                 registerCarsPicker.Items.Add(i.ToString());
             }
-            registerCarsPicker.SelectedIndex = 1;
+
+            registerCarsPicker.SelectedIndex = 0;
+
+
             if (carList.Count == 0)
             {
                 carDataLabel.Text = "No se tienen automóviles registrados";
                 removeCar.IsEnabled = false;
+            }
+            if (registerCarsPicker.SelectedIndex == -1)
+            {
+                carDataLabel.Text = "Datos del automóvil ";
+                carTypeLabel.Text = "Tipo: ";
+                carMakeLabel.Text = "Marca: ";
+                carColorLabel.Text = "Color: ";
+                licensePlateLabel.Text = "Matrícula: ";
+                yearLabel.Text = "Año: ";
             }
             else
             {
@@ -45,7 +60,7 @@ namespace Uber_Universitario.Pages
                 carTypeLabel.Text = "Tipo: " + carList.ElementAt(registerCarsPicker.SelectedIndex).Type; 
                 carMakeLabel.Text = "Marca: " + carList.ElementAt(registerCarsPicker.SelectedIndex).Brand;
                 carColorLabel.Text = "Color: " + carList.ElementAt(registerCarsPicker.SelectedIndex).Color;
-                licensePlateLabel.Text = "Matrícula: " + carList.ElementAt(registerCarsPicker.SelectedIndex).LicensePlate;
+                licensePlateLabel.Text = "Matrícula: " + carList.ElementAt(registerCarsPicker.SelectedIndex).LicensePlate.ToUpper();
                 yearLabel.Text = "Año: " + carList.ElementAt(registerCarsPicker.SelectedIndex).ModelYear.ToString();
             }
            
@@ -63,12 +78,27 @@ namespace Uber_Universitario.Pages
             var res = await DisplayAlert("Eliminación de vehiculos", "¿Está seguro de que desea eliminar la información del automóvil seleccionado?", "Aceptar", "Cancelar");
             if(res)
             {
+                car = carList.ElementAt<Car>(registerCarsPicker.SelectedIndex);
                 using (var datos = new DataAccess())
                 {
-                    datos.DeleteCar(carList.FirstOrDefault());
+                    datos.DeleteCar(car);
                 }
+                refreshPage();
             }
 
+        }
+
+        public void refreshPage()
+        {
+            var vUpdatedPage = new RegisterCarPage(user,registerCarsPicker.SelectedIndex);
+            Navigation.InsertPageBefore(vUpdatedPage, this);
+            Navigation.PopAsync();
+        }
+
+        private void registerCarsPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //registerCarsPicker.SelectedIndex = carNum;
+            //refreshPage();
         }
     }
 }

@@ -19,6 +19,9 @@ namespace Uber_Universitario
             };
 
             //MainPage = new NavigationPage(new MainPage(user));
+            Application.Current.Properties["switch"] = "0";
+            Application.Current.Properties["carNumber"] = "-1";
+            Application.Current.SavePropertiesAsync();
             MainPage = new NavigationPage(new LoginPage());
 		}
 

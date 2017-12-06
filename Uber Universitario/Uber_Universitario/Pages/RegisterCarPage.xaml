@@ -8,6 +8,7 @@
             <StackLayout Padding="10,30,10,10" Spacing="10">
                 <Label Text="Automóviles registrados"
                    FontSize="20"
+                   FontAttributes="Bold"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="Center"
                    HorizontalTextAlignment="Center"/>
@@ -28,36 +29,43 @@
                 <Picker x:Name="registerCarsPicker"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
-                    WidthRequest="150"/>
+                    WidthRequest="150"
+                        SelectedIndexChanged="registerCarsPicker_SelectedIndexChanged"/>
                 <Label x:Name="carDataLabel"
                    FontSize="Medium"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"/>
-                <Label x:Name="carTypeLabel"
-                   FontSize="Micro"
+                <Grid BackgroundColor="#c0c0c8"
+                      HeightRequest="200">
+                    <StackLayout Padding="10,30,10,10" Spacing="10">
+                        <Label x:Name="carTypeLabel"
+                   FontSize="Small"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-                <Label x:Name="carMakeLabel"
-                   FontSize="Micro"
+                        <Label x:Name="carMakeLabel"
+                   FontSize="Small"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-                <Label x:Name="carColorLabel"
-                   FontSize="Micro"
+                        <Label x:Name="carColorLabel"
+                   FontSize="Small"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-                <Label x:Name="licensePlateLabel"
-                   FontSize="Micro"
+                        <Label x:Name="licensePlateLabel"
+                   FontSize="Small"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
-                <Label x:Name="yearLabel"
-                   FontSize="Micro"
+                        <Label x:Name="yearLabel"
+                   FontSize="Small"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"
                    FontAttributes="Bold"/>
+                    </StackLayout>
+                </Grid>
+                
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -71,24 +79,27 @@
                         Clicked="addCar_Clicked"
                         Image="addCarIcon.png"
                         BackgroundColor="Transparent"
+                        VerticalOptions="EndAndExpand"
                         Grid.Column="0"
-                        Grid.Row="0"
-                        VerticalOptions="End"/>
+                        Grid.Row="0"/>
                     <Button x:Name="removeCar"
                         Clicked="removeCar_Clicked"
                         Image="removeCarIcon.png"
+                        VerticalOptions="EndAndExpand"
                         BackgroundColor="Transparent"
                         Grid.Column="1"
-                        Grid.Row="0"
-                        VerticalOptions="End"/>
+                        Grid.Row="0"/>
                     <Label Text="Agregar nuevo automóvil"
                        FontSize="Micro"
                        HorizontalTextAlignment="Center"
+                       VerticalOptions="EndAndExpand"
                        Grid.Column="0"
                        Grid.Row="1"/>
                     <Label Text="Eliminar automóvil"
                        FontSize="Micro"
                        HorizontalTextAlignment="Center"
+                        VerticalOptions="EndAndExpand"
+                           
                        Grid.Column="1"
                        Grid.Row="1"/>
                 </Grid>

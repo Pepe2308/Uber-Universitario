@@ -56,19 +56,33 @@ namespace Uber_Universitario.Pages
             if (user.driverRegister == true)
                 registerDriverButton.IsVisible = false;
             else
-                accountTypeSwitch.IsEnabled = false;
+            {
+                accountTypeButton.Text = "P";
+                accountTypeButton.IsEnabled = false;
+               // accountTypeSwitch.IsEnabled = false;
+            }
 
             if (user.AccountType.Equals("conductor".ToUpper()))
             {
-                accountTypeSwitch.IsToggled = true;
+                //accountTypeSwitch.IsToggled = true;
+                accountTypeButton.Text = "C";
                 availableSeatsLabel.IsVisible = true;
                 reservedSeatsLabel.IsVisible = true;
                 carsInfoButton.IsVisible = true;
 
             }
 
-            if (!accountTypeSwitch.IsToggled)
+            //if (!accountTypeSwitch.IsToggled)
+            //{
+            //    accountTypeButton.Text = "P";
+            //    availableSeatsLabel.IsVisible = false;
+            //    reservedSeatsLabel.IsVisible = false;
+            //    carsInfoButton.IsVisible = false;
+            //}
+
+            if (user.AccountType.Equals("pasajero".ToUpper()))
             {
+                accountTypeButton.Text = "P";
                 availableSeatsLabel.IsVisible = false;
                 reservedSeatsLabel.IsVisible = false;
                 carsInfoButton.IsVisible = false;
@@ -89,25 +103,34 @@ namespace Uber_Universitario.Pages
 
         private  void accountTypeSwitch_Toggled(object sender, ToggledEventArgs e)
         {
-            if(!accountTypeSwitch.IsToggled)
+            
+            if(!e.Value)
             {
                 user.AccountType = "pasajero".ToUpper();
                 using (var datos = new DataAccess())
                 {
                     datos.UpdateUser(user);
                 }
+                refreshPage();
             }
-            else if(accountTypeSwitch.IsToggled)
+            else if(e.Value)
             {
                 user.AccountType = "conductor".ToUpper();
                 using (var datos = new DataAccess())
                 {
                     datos.UpdateUser(user);
                 }
+                refreshPage();
             }
-            var vUpdatedPage = new MainPage(user);
-            Navigation.InsertPageBefore(vUpdatedPage, this);
-            Navigation.PopAsync();
+            //refreshPage();
+
+        }
+
+        public void refreshPage()
+        {
+                    var vUpdatedPage = new MainPage(user);
+                    Navigation.InsertPageBefore(vUpdatedPage, this);
+                    Navigation.PopAsync();
         }
 
         private async void imageAccountButton_Clicked(object sender, EventArgs e)
@@ -122,6 +145,7 @@ namespace Uber_Universitario.Pages
 
             var location = await locator.GetPositionAsync(timeout: TimeSpan.FromMilliseconds(10000));
             var position = new Xamarin.Forms.Maps.Position(location.Latitude, location.Longitude);
+            
             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(.3)));
             var pin1 = new Pin
             {
@@ -301,7 +325,7 @@ namespace Uber_Universitario.Pages
 
         private async void carsInfoButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterCarPage(user));
+            await Navigation.PushAsync(new RegisterCarPage(user,-1));
         }
 
         protected override void OnAppearing()
@@ -326,6 +350,26 @@ namespace Uber_Universitario.Pages
             }
         }
 
-      
+        private void accountTypeButton_Clicked(object sender, EventArgs e)
+        {
+            if (user.AccountType.Equals("conductor".ToUpper()))
+            {
+                user.AccountType = "pasajero".ToUpper();
+                using (var datos = new DataAccess())
+                {
+                    datos.UpdateUser(user);
+                }
+                refreshPage();
+            }
+            else if (user.AccountType.Equals("pasajero".ToUpper()))
+            {
+                user.AccountType = "conductor".ToUpper();
+                using (var datos = new DataAccess())
+                {
+                    datos.UpdateUser(user);
+                }
+                refreshPage();
+            }
+        }
     }
 }
